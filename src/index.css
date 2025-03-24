@@ -12,3 +12,47 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.page_title {
+  text-align: left;
+}
+
+.shopping_cart_title {
+  text-align: left;
+}
+
+.shopping_cart_total {
+  text-align: left;
+}
+
+.shoppig_cart_list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.produce_list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.produce_list_item {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.page_title {
+  text-align: left;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.produce_list_item {
+  text-align: left;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}

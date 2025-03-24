@@ -1,10 +1,11 @@
 import { useState } from "react";
 
-function ShoppingCart() {
+function ShoppingCart({ cart, setCart }) {
   return (
-    <div>
-      <p>Shopping Cart goes here</p>
-    </div>
+    <ul className="shoppig_cart_list">
+      // we need ot show the shoppingcart items here
+      <p></p>
+    </ul>
   );
 }
 

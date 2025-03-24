@@ -2,13 +2,21 @@ import produceData from "../produce_data";
 import { useState } from "react";
 import ProduceItem from "./ProduceItem";
 
-function ProduceList() {
+function ProduceList({ cart, addToCart }) {
+  console.log("ProduceList - cart = ", cart);
+  console.log("ProduceList - addToCart = ", addToCart);
+
   return (
-    <div>
+    <ul className="produce_list">
       {produceData.map((item) => (
-        <ProduceItem item={item} />
+        <ProduceItem
+          key={item.id}
+          item={item}
+          addToCart={addToCart}
+          cart={cart}
+        />
       ))}
-    </div>
+    </ul>
   );
 }
 

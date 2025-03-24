@@ -4,14 +4,46 @@ import ProduceList from "./components/ProduceList";
 import ShoppingCart from "./components/ShoppingCart";
 
 function App() {
+  const { cart, setCart } = useState([]);
+  const [cartTotal, setCartTotal] = useState(0);
+
+  function addToCart(item) {
+    console.log("addToCart() - item = ", item);
+    setCart((currentCart) => {
+      const existingItem = currentCart.find(
+        (cartItem) => cartItem.id === item.id
+      );
+
+      const updatedCart = existingItem
+        ? currentCart.map((cartItem) =>
+            cartItem.id === item.id
+              ? { ...cartItem, quantity: cartItem.quantity + 1 }
+              : cartItem
+          )
+        : [...currentCart, { ...item, quantity: 1 }];
+
+      console.log("addToCart() - cartItem = ", cartItem);
+      // Calculate new total after cart update
+      const newTotal = updatedCart.reduce(
+        (sum, cartItem) => sum + cartItem.price * cartItem.quantity,
+        0
+      );
+      setCartTotal(newTotal);
+
+      return updatedCart;
+    });
+  }
+
   return (
     <>
-      <h2>Simple Produce Store</h2>
+      <h2 className="page_title">Simple Produce Store</h2>
+      {console.log("App - cart = ", cart)}
+      {console.log("App - addToCart = ", addToCart)}
 
-      <ProduceList />
-      <h3>Shopping Cart:</h3>
-      <ShoppingCart />
-      <p>Total: $xxx.xx</p>
+      <ProduceList cart={cart} addToCart={addToCart} />
+      <h3 className="shopping_cart_title">Shopping Cart:</h3>
+      <ShoppingCart cart={cart} setCart={setCart} />
+      <p className="shopping_cart_total">Total: ${cartTotal.toFixed(2)}</p>
     </>
   );
 }
