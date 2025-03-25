@@ -7,7 +7,6 @@
 import { useState } from "react";
 
 function ProduceItem({ item, cart, addToCart }) {
-  // Add console.log at the start to debug props
   console.log("ProduceItem props:", { item, cart, addToCart });
 
   const formattedPrice = item.price.toLocaleString("en-US", {

@@ -5,7 +5,7 @@
 //
 
 import { useState } from "react";
-import CartItem from "./CartItem";
+import CartItem from "./CartItem.jsx";
 
 function ShoppingCart({ cart, setCart, removeItemFromCart }) {
   console.log("ShoppingCart() - cart = ", cart);

@@ -4,9 +4,9 @@
 // Block 27A - Simple Produce Store
 //
 
-import produceData from "../produce_data";
+import produceData from "../produce_data.jsx";
 import { useState } from "react";
-import ProduceItem from "./ProduceItem";
+import ProduceItem from "./ProduceItem.jsx";
 
 function ProduceList({ cart, addToCart }) {
   // console.log("ProduceList - cart = ", cart);
