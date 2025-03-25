@@ -3,8 +3,8 @@ import { useState } from "react";
 import ProduceItem from "./ProduceItem";
 
 function ProduceList({ cart, addToCart }) {
-  console.log("ProduceList - cart = ", cart);
-  console.log("ProduceList - addToCart = ", addToCart);
+  // console.log("ProduceList - cart = ", cart);
+  // console.log("ProduceList - addToCart = ", addToCart);
 
   return (
     <ul className="produce_list">

@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-function ProduceItem({ id, item, cart, addToCart }) {
-  console.log("ProduceItem - item = ", item);
-  console.log("ProduceItem - cart = ", cart);
-  console.log("ProduceItem - addToCart = ", addToCart);
+function ProduceItem({ item, cart, addToCart }) {
+  // Add console.log at the start to debug props
+  console.log("ProduceItem props:", { item, cart, addToCart });
 
   const formattedPrice = item.price.toLocaleString("en-US", {
     style: "currency",
@@ -11,6 +10,10 @@ function ProduceItem({ id, item, cart, addToCart }) {
   });
 
   function handleClick() {
+    if (typeof addToCart !== "function") {
+      console.error("addToCart is not a function:", addToCart);
+      return;
+    }
     addToCart(item);
   }
 

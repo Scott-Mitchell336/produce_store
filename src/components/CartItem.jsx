@@ -1,10 +1,15 @@
 import { useState } from "react";
 
 function CartItem({ item }) {
-  const [cartItem, setCartItem] = useState(item);
-  const [quantity, setQuantity] = useState(1);
+  // Remove local state since we want to use the props directly
+  const itemTotal = item.price * item.quantity;
 
-  return <p>CartItem</p>;
+  return (
+    <li className="cart_list_item">
+      {item.name} - ${item.price.toFixed(2)} x {item.quantity} = $
+      {itemTotal.toFixed(2)}
+    </li>
+  );
 }
 
 export default CartItem;
