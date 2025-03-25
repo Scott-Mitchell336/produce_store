@@ -62,6 +62,11 @@ function App() {
     });
   }
 
+  const formattedTotal = cartTotal.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
   return (
     <>
       <h2 className="page_title">Simple Produce Store</h2>
@@ -75,7 +80,7 @@ function App() {
         setCart={setCart}
         removeItemFromCart={removeItemFromCart}
       />
-      <p className="shopping_cart_total">Total: ${cartTotal.toFixed(2)}</p>
+      <p className="shopping_cart_total">Total: {formattedTotal}</p>
     </>
   );
 }

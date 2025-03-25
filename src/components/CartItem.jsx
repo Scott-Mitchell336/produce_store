@@ -7,7 +7,16 @@
 import { useState } from "react";
 
 function CartItem({ item, removeItemFromCart }) {
-  const itemTotal = item.price * item.quantity;
+  // const itemTotal = item.price * item.quantity;
+
+  const formattedPrice = item.price.toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+  const formattedTotal = (item.price * item.quantity).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
 
   function handleClick() {
     // Implement the function to remove an item from the cart
@@ -16,8 +25,8 @@ function CartItem({ item, removeItemFromCart }) {
 
   return (
     <li className="cart_list_item">
-      {item.name} - ${item.price.toFixed(2)} x {item.quantity} = $
-      {itemTotal.toFixed(2)} <button onClick={handleClick}>X</button>
+      {item.name} - {formattedPrice} x {item.quantity} = {formattedTotal}{" "}
+      <button onClick={handleClick}>X</button>
     </li>
   );
 }
