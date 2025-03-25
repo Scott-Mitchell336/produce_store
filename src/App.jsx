@@ -1,3 +1,9 @@
+//
+// App.jsx
+// Created by Scott Mitchell on 03/20/2025
+// Block 27A - Simple Produce Store
+//
+
 import { useState } from "react";
 import "./App.css";
 import ProduceList from "./components/ProduceList";
@@ -38,6 +44,24 @@ function App() {
     });
   }
 
+  function removeItemFromCart(item) {
+    setCart((currentCart) => {
+      // Filter out the item completely, regardless of quantity
+      const updatedCart = currentCart.filter(
+        (cartItem) => cartItem.id !== item.id
+      );
+
+      // Calculate new total after cart update
+      const newTotal = updatedCart.reduce(
+        (sum, cartItem) => sum + cartItem.price * cartItem.quantity,
+        0
+      );
+
+      setCartTotal(newTotal);
+      return updatedCart;
+    });
+  }
+
   return (
     <>
       <h2 className="page_title">Simple Produce Store</h2>
@@ -46,7 +70,11 @@ function App() {
 
       <ProduceList cart={cart} addToCart={addToCart} />
       <h3 className="shopping_cart_title">Shopping Cart:</h3>
-      <ShoppingCart cart={cart} setCart={setCart} />
+      <ShoppingCart
+        cart={cart}
+        setCart={setCart}
+        removeItemFromCart={removeItemFromCart}
+      />
       <p className="shopping_cart_total">Total: ${cartTotal.toFixed(2)}</p>
     </>
   );

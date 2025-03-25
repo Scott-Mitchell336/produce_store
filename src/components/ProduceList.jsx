@@ -1,3 +1,9 @@
+//
+// ProduceList.jsx
+// Created by Scott Mitchell on 03/21/2025
+// Block 27A - Simple Produce Store
+//
+
 import produceData from "../produce_data";
 import { useState } from "react";
 import ProduceItem from "./ProduceItem";

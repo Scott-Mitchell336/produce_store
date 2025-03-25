@@ -1,3 +1,9 @@
+//
+// ProduceItem.jsx
+// Created by Scott Mitchell on 03/21/2025
+// Block 27A - Simple Produce Store
+//
+
 import { useState } from "react";
 
 function ProduceItem({ item, cart, addToCart }) {
